@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Controller {
 
     public Controller() {
-        Grid g = new Grid(5,5,0,0);
+        Grid g = new Grid(5,5);
         g.printGrid();
 
         Scanner sc = new Scanner(System.in);
