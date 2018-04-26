@@ -1,4 +1,4 @@
-package src.sample;
+package src.sample.Model;
 
 public class Grid {
     private int line;
@@ -20,13 +20,35 @@ public class Grid {
     }
 
     public void printGrid() {
+        System.out.println();
         System.out.println("--- Affichage de la grille ---");
         for (int i = 0; i < line; i++) {
             for (int j = 0; j < column; j++) {
-                System.out.print(grid[i][j].getType() + " ");
+                System.out.print(grid[i][j].type + " ");
             }
             System.out.println();
         }
         System.out.println("--- Fin de l'affichage de la grille ---");
+        System.out.println();
+    }
+
+    public int play(int line, int column) {
+        if (grid[line][column].isPlayable()) {
+            if (grid[line][column].type == Cell.POISONEDCELL) {
+                System.out.println("C'est perdu !");
+                return 1;
+            } else {
+                for (int i = line; i < this.line; i++) {
+                    for (int j = column; j < this.column; j++) {
+                        if (grid[i][j].type == Cell.FULLCELL) {
+                            grid[i][j].type = Cell.EMPTYCELL;
+                        }
+                    }
+                }
+            }
+        } else {
+            System.out.println("Ceci n'est pas une case valide !");
+        }
+        return 0;
     }
 }
