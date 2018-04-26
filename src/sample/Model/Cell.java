@@ -1,4 +1,4 @@
-package src.sample;
+package src.sample.Model;
 
 
 public class Cell {
