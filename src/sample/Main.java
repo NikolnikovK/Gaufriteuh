@@ -18,6 +18,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        Grid g = new Grid(5,5,0,0);
+        g.printGrid();
         launch(args);
     }
 }
