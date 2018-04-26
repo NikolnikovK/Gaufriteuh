@@ -1,4 +1,4 @@
-package src.sample;
+package src.sample.Model;
 
 
 public class Cell {
@@ -6,14 +6,10 @@ public class Cell {
     final static int FULLCELL = 1;
     final static int POISONEDCELL = 2;
 
-    private int type;
+    public int type;
 
     public Cell(int type) {
         this.type = type;
-    }
-
-    public int getType() {
-        return type;
     }
 
     public boolean isPlayable() {
