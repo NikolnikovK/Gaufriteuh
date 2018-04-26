@@ -5,7 +5,7 @@ public class Grid {
     private int column;
     private Cell [][] grid;
 
-    public Grid(int line, int column, int linePois, int columnPois) {
+    public Grid(int line, int column) {
         this.line = line;
         this.column = column;
         this.grid = new Cell[line][column];
@@ -16,7 +16,7 @@ public class Grid {
                 grid[i][j] = c;
             }
         }
-        grid[linePois][columnPois] = new Cell(Cell.POISONEDCELL);
+        grid[0][0] = new Cell(Cell.POISONEDCELL);
     }
 
     public void printGrid() {
