@@ -1,9 +1,10 @@
 package src.sample.Model;
 
 public class Grid {
-    private int line;
-    private int column;
-    private Cell [][] grid;
+    public int line;
+    public int column;
+    public boolean inGame = true;
+    public Cell [][] grid;
 
     public Grid(int line, int column) {
         this.line = line;
@@ -33,8 +34,9 @@ public class Grid {
     }
 
     public int play(int line, int column) {
-        if (grid[line][column].isPlayable()) {
+        if (line > -1 && line < this.line && column > -1 && column < this.column && grid[line][column].isPlayable()) {
             if (grid[line][column].type == Cell.POISONEDCELL) {
+                inGame = false;
                 System.out.println("C'est perdu !");
                 return 1;
             } else {
