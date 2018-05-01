@@ -1,6 +1,8 @@
 package src.sample;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.VPos;
 import javafx.scene.CacheHint;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
@@ -112,12 +114,15 @@ public class Main extends Application {
 
         // Crée le gridPane qui contiendra l'interface
         GridPane mainGrid = new GridPane();
+        //mainGrid.setPrefSize(WINDOW_WIDTH, WINDOW_HEIGHT); // Default width and height
+        //mainGrid.setMaxSize(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE);
 
         // Ajoute des contraintes sur la taille des lignes
         RowConstraints row1 = new RowConstraints();
         row1.setPercentHeight(90);
         RowConstraints row2 = new RowConstraints();
         row2.setPercentHeight(10);
+        row2.setValignment(VPos.CENTER);
         mainGrid.getRowConstraints().addAll(row1,row2);
 
         // Ajoute des contraintes sur la taille des colonnes
@@ -140,7 +145,7 @@ public class Main extends Application {
         // Ajoute le tout au grid
         mainGrid.add(p0,1,1);
         mainGrid.add(p1,3,1);
-        mainGrid.add(pane,0,0,4,1);
+        mainGrid.add(pane,0,0,4,2);
 
         // Crée la scène, l'affiche et dessine le canvas
         Scene s = new Scene(mainGrid,100*column, 100+100*line);
@@ -155,11 +160,13 @@ public class Main extends Application {
                 if (board.inGame) {
                     int i = (int) (e.getY()* board.line/(c.getHeight()-100));
                     int j = (int) (e.getX()* board.column/c.getWidth());
-                    switch (players[currentPlayer].bite(i,j)) {
+                    switch (players[currentPlayer].play(i,j)) {
                         // Case valide
                         case 0:
                             // Change le joueur courant
                             currentPlayer = 1 - currentPlayer;
+                            // Raffraichit l'affichage
+                            draw();
                             break;
                         // Case invalide
                         case 1:
@@ -168,10 +175,10 @@ public class Main extends Application {
                         case 2:
                             // Arrête le jeu
                             board.inGame = false;
+                            // Raffraichit l'affichage
+                            draw();
                             break;
                     }
-                    // Raffraichit l'affichage
-                    draw();
                 }
             }
         });

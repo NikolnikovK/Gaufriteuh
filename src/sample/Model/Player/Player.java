@@ -11,7 +11,7 @@ public abstract class Player {
         this.board = board;
     }
 
-    public int bite(int line, int column) {
+    public int play(int line, int column) {
         return board.play(line,column);
     }
 }
