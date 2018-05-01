@@ -2,9 +2,9 @@ package src.sample.Model;
 
 
 public class Cell {
-    final static int EMPTYCELL = 0;
-    final static int FULLCELL = 1;
-    final static int POISONEDCELL = 2;
+    public final static int EMPTYCELL = 0;
+    public final static int FULLCELL = 1;
+    public final static int POISONEDCELL = 2;
 
     public int type;
 
