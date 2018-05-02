@@ -9,10 +9,10 @@ public class Config extends ListResourceBundle {
             {"Column", 4},
 
             {"P0Type", 0},
-            {"P0Name", "Alex"},
+            {"P0Name", "Joueur 1"},
 
             {"P1Type", 0},
-            {"P1Name", "Aurel"},
+            {"P1Name", "Joueur 2"},
         };
     }
 }
