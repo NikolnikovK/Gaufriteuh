@@ -1,8 +1,0 @@
-waffleLine=6
-waffleColumn=4
-waffle=211111001000100000000000
-P0Type=0
-P0Name=Alex
-P1Type=0
-P1Name=Aurel
-currentPlayer=0
